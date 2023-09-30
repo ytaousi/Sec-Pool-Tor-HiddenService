@@ -2,8 +2,11 @@ version: "3"
 services:
   tor:
     container_name: tor-container
-    image: nginx:tor
     pull_policy: never
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    image: nginx:tor
     ports:
       - 8080:80
       - 4242:22
