@@ -11,5 +11,9 @@ sed -i "s|#PermitEmptyPasswords no|PermitEmptyPasswords no|g" /etc/ssh/sshd_conf
 
 service ssh start
 mkdir -p /run/sshd
+service tor restart
+# worst thing to do only experimental purpose
+# sed -i "s|server_name _;|server_name $(cat /var/lib/tor/hidden_service/hostname);|g"
+
 nginx -g 'daemon off;'
 
